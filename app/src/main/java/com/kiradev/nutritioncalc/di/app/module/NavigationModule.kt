@@ -1,4 +1,4 @@
-package com.kiradev.nutritioncalc.di.modules
+package com.kiradev.nutritioncalc.di.app.module
 
 import dagger.Module
 import dagger.Provides

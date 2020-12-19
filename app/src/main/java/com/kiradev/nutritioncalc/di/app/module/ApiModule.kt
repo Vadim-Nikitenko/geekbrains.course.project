@@ -1,13 +1,13 @@
-package com.kiradev.nutritioncalc.di.modules
+package com.kiradev.nutritioncalc.di.app.module
 
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.kiradev.nutritioncalc.mvp.model.api.HeaderInterceptor
 import com.kiradev.nutritioncalc.mvp.model.api.IDataSource
-import com.kiradev.nutritioncalc.di.constants.Constant.Companion.BASE_URL
-import com.kiradev.nutritioncalc.di.constants.Constant.Companion.CACHE_DIRECTORY_NAME
-import com.kiradev.nutritioncalc.di.constants.Constant.Companion.CACHE_SIZE
+import com.kiradev.nutritioncalc.mvp.model.constants.Constant.Companion.BASE_URL
+import com.kiradev.nutritioncalc.mvp.model.constants.Constant.Companion.CACHE_DIRECTORY_NAME
+import com.kiradev.nutritioncalc.mvp.model.constants.Constant.Companion.CACHE_SIZE
 import com.kiradev.nutritioncalc.mvp.model.network.INetworkStatus
 import com.kiradev.nutritioncalc.ui.App
 import com.kiradev.nutritioncalc.ui.network.AndroidNetworkStatus

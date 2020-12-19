@@ -1,11 +1,9 @@
-package com.kiradev.nutritioncalc.di
+package com.kiradev.nutritioncalc.di.app
 
-import com.kiradev.nutritioncalc.di.modules.*
-import com.kiradev.nutritioncalc.mvp.presenter.FoodPresenter
+import com.kiradev.nutritioncalc.di.app.module.*
+import com.kiradev.nutritioncalc.di.search.SearchFoodSubcomponent
 import com.kiradev.nutritioncalc.mvp.presenter.MainPresenter
-import com.kiradev.nutritioncalc.mvp.presenter.SearchFoodPresenter
 import com.kiradev.nutritioncalc.ui.activity.MainActivity
-import com.kiradev.nutritioncalc.ui.adapter.SearchFoodRvAdapter
 import com.kiradev.nutritioncalc.ui.fragment.FoodFragment
 import dagger.Component
 import javax.inject.Singleton
@@ -16,16 +14,12 @@ import javax.inject.Singleton
         AppModule::class,
         ApiModule::class,
         NavigationModule::class,
-        ImageModule::class,
-        RepoModule::class,
-        CacheModule::class
+        ImageModule::class
     ]
 )
 interface AppComponent {
+    fun searchFoodSubcomponent(): SearchFoodSubcomponent
     fun inject(mainPresenter: MainPresenter)
-    fun inject(foodPresenter: FoodPresenter)
-    fun inject(searchFoodPresenter: SearchFoodPresenter)
-    fun inject(searchFoodRvAdapter: SearchFoodRvAdapter)
     fun inject(mainActivity: MainActivity)
     fun inject(foodFragment: FoodFragment)
 }

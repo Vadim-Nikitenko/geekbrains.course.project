@@ -1,11 +1,10 @@
 package com.kiradev.nutritioncalc.ui
 
 import android.app.Application
-import android.view.View
-import com.kiradev.nutritioncalc.di.AppComponent
-import com.kiradev.nutritioncalc.di.DaggerAppComponent
-import com.kiradev.nutritioncalc.di.modules.AppModule
-import leakcanary.LeakCanary
+import com.kiradev.nutritioncalc.di.app.AppComponent
+import com.kiradev.nutritioncalc.di.app.DaggerAppComponent
+import com.kiradev.nutritioncalc.di.app.module.AppModule
+import com.kiradev.nutritioncalc.di.search.SearchFoodSubcomponent
 
 class App: Application() {
 
@@ -14,6 +13,9 @@ class App: Application() {
     }
 
     lateinit var appComponent: AppComponent
+        private set
+
+    var searchFoodSubcomponent: SearchFoodSubcomponent? = null
 
     override fun onCreate() {
         super.onCreate()
@@ -21,5 +23,13 @@ class App: Application() {
         appComponent = DaggerAppComponent.builder()
             .appModule(AppModule(this))
             .build()
+    }
+
+    fun initSearchFoodSubcomponent() = appComponent.searchFoodSubcomponent().also {
+        searchFoodSubcomponent = it
+    }
+
+    fun releaseSearchFoodSubcomponent() {
+        searchFoodSubcomponent = null
     }
 }

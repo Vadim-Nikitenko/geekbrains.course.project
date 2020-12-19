@@ -1,6 +1,6 @@
 package com.kiradev.nutritioncalc.mvp.presenter
 
-import com.kiradev.nutritioncalc.di.constants.Constant.Companion.INIT_FOODS
+import com.kiradev.nutritioncalc.mvp.model.constants.Constant.Companion.INIT_FOODS
 import com.kiradev.nutritioncalc.mvp.model.entity.retrofit.FoodUnit
 import com.kiradev.nutritioncalc.mvp.model.repo.IFoodRepo
 import com.kiradev.nutritioncalc.mvp.presenter.list.ISearchFoodListPresenter

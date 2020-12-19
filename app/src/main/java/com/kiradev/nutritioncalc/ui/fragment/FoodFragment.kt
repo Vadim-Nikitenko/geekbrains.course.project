@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import com.kiradev.nutritioncalc.databinding.FragmentFoodBinding
-import com.kiradev.nutritioncalc.di.constants.Constant.Companion.FOOD_KEY
+import com.kiradev.nutritioncalc.mvp.model.constants.Constant.Companion.FOOD_KEY
 import com.kiradev.nutritioncalc.mvp.model.entity.Food
 import com.kiradev.nutritioncalc.mvp.model.entity.retrofit.FoodUnit
 import com.kiradev.nutritioncalc.mvp.model.image.IImageLoader
@@ -34,7 +34,7 @@ class FoodFragment : MvpAppCompatFragment(), FoodView, BackButtonListener {
 
     val presenter by moxyPresenter {
         val food = arguments?.get(FOOD_KEY) as FoodUnit
-        FoodPresenter(food).apply { App.instance.appComponent.inject(this) }
+        FoodPresenter(food).apply { App.instance.searchFoodSubcomponent?.inject(this) }
     }
 
     override fun onCreateView(

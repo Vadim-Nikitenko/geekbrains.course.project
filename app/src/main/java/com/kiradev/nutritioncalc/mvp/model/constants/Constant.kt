@@ -1,4 +1,4 @@
-package com.kiradev.nutritioncalc.di.constants
+package com.kiradev.nutritioncalc.mvp.model.constants
 
 class Constant {
     companion object {

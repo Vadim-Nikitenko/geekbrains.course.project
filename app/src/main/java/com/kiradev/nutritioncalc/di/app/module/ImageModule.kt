@@ -1,4 +1,4 @@
-package com.kiradev.nutritioncalc.di.modules
+package com.kiradev.nutritioncalc.di.app.module
 
 import android.widget.ImageView
 import com.kiradev.nutritioncalc.mvp.model.image.IImageLoader
