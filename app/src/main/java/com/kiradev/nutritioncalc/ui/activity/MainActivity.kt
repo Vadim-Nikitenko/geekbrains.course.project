@@ -2,7 +2,6 @@ package com.kiradev.nutritioncalc.ui.activity
 
 import android.os.Bundle
 import android.view.MenuItem
-import android.view.View
 import com.kiradev.nutritioncalc.R
 import com.kiradev.nutritioncalc.databinding.ActivityMainBinding
 import com.kiradev.nutritioncalc.mvp.presenter.MainPresenter

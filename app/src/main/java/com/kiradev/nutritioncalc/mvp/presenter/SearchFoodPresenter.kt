@@ -14,7 +14,7 @@ import moxy.MvpPresenter
 import ru.terrakok.cicerone.Router
 import javax.inject.Inject
 
-class SearchFoodPresenter : MvpPresenter<SearchView>() {
+class SearchFoodPresenter(val onDestroyF: () -> Unit) : MvpPresenter<SearchView>() {
 
     @Inject lateinit var foodsRepo: IFoodRepo
     @Inject lateinit var uiScheduler: Scheduler
@@ -31,6 +31,7 @@ class SearchFoodPresenter : MvpPresenter<SearchView>() {
         searchFoodListPresenter.itemClickListener = { view ->
             router.navigateTo(Screens.FoodScreen(searchFoodListPresenter.foods[view.pos]))
         }
+
     }
 
     private fun loadData() {
@@ -48,6 +49,7 @@ class SearchFoodPresenter : MvpPresenter<SearchView>() {
     override fun onDestroy() {
         super.onDestroy()
         compositeDisposable.dispose()
+        onDestroyF()
     }
 
     fun updateFoods(text: CharSequence) {
@@ -68,6 +70,15 @@ class SearchFoodPresenter : MvpPresenter<SearchView>() {
         router.exit()
         return true
     }
+
+    fun btnDateClicked() {
+        viewState.showDatePicker()
+    }
+
+    fun datePickerDialogDismissed() {
+        viewState.hideDatePicker()
+    }
+
 
     class SearchFoodListPresenter : ISearchFoodListPresenter {
         override var itemClickListener: ((ISearchFoodItemView) -> Unit)? = null

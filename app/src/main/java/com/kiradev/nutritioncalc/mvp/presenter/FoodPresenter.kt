@@ -11,11 +11,8 @@ import javax.inject.Inject
 
 class FoodPresenter(private val food: FoodUnit) : MvpPresenter<FoodView>() {
 
-    @Inject
-    lateinit var scheduler: Scheduler
-
-    @Inject
-    lateinit var router: Router
+    @Inject lateinit var scheduler: Scheduler
+    @Inject lateinit var router: Router
     private val compositeDisposable = CompositeDisposable()
 
     override fun onFirstViewAttach() {
